@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Animada</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #807ee6; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .galeria-contenedor {
+            width: 700px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .imagen-principal {
+            width: 100%;
+            height: 450px;
+            overflow: hidden; 
+            position: relative;
+        }
+        .imagen-principal img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease-in-out; 
+            cursor: pointer;
+        }
+        .imagen-principal:hover img {
+            transform: scale(1.1); 
+        }
+
+        .miniaturas {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .miniaturas img {
+            width: calc(33.33% - 6.66px);
+            height: 150px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .miniaturas img:hover {
+            opacity: 0.7; 
+        }
+    </style>
+</head>
+<body>
+    <div class="galeria-contenedor">
+        <div class="imagen-principal">
+            <img id="img-grande" src="https://images.pexels.com/photos/14332269/pexels-photo-14332269.jpeg" alt="Paisaje principal">
+        </div>
+
+        <div class="miniaturas">
+            <img src="https://images.pexels.com/photos/14332269/pexels-photo-14332269.jpeg" onclick="cambiarImagen(this.src)" alt="Miniatura 1">
+            <img src="https://images.pexels.com/photos/954363/pexels-photo-954363.jpeg" onclick="cambiarImagen(this.src)" alt="Miniatura 2">
+            <img src="https://images.pexels.com/photos/6875030/pexels-photo-6875030.jpeg" onclick="cambiarImagen(this.src)" alt="Miniatura 3">
+        </div>
+    </div>
+    <script>
+        function cambiarImagen(rutaImagen) {
+            document.getElementById('img-grande').src = rutaImagen;
+        }
+    </script>
+</body>
+</html>
